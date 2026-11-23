@@ -1,0 +1,6 @@
+{
+  "name": "The Wedding Dreams",
+  "description": "A complete event solution — ultra-luxury, concierge-led wedding planning and curated venue & vendor showcase for India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

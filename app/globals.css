@@ -1,0 +1,181 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --bg-ivory: #FFF9FA;
+  --bg-blush: #FDEEF2;
+  --bg-silk: #FAF5EE;
+  --bg-rose-deep: #F6DCE4;
+  --glass: rgba(255, 255, 255, 0.62);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --crimson: #9E192D;
+  --crimson-deep: #7A1222;
+  --lotus: #E05286;
+  --lotus-soft: #F7C9D8;
+  --gold: #C59B27;
+  --gold-antique: #B8860B;
+  --gold-text: #8A6508;
+  --gold-bright: #D4AF37;
+  --ink: #241719;
+  --ink-soft: #5A464A;
+  --ink-mute: #7D6A6E;
+  --hairline: rgba(197, 155, 39, 0.45);
+  --hairline-soft: rgba(197, 155, 39, 0.22);
+  --success: #2F7D5B;
+  --pending: #B8860B;
+  --error: #B3261E;
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-soft: 0 18px 50px -24px rgba(158, 25, 45, 0.18);
+  --shadow-lift: 0 30px 70px -30px rgba(36, 23, 25, 0.22);
+  --radius-card: 20px;
+  --radius-pill: 999px;
+  --radius-arch: 200px 200px 20px 20px;
+
+  --fs-display: clamp(3.25rem, 1.6rem + 7vw, 8rem);
+  --fs-h1: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  --fs-h2: clamp(2rem, 1.3rem + 2.8vw, 3.5rem);
+  --fs-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --fs-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --fs-body: clamp(0.975rem, 0.93rem + 0.2vw, 1.0625rem);
+  --fs-label: 0.75rem;
+}
+
+@theme inline {
+  --color-ivory: var(--bg-ivory);
+  --color-blush: var(--bg-blush);
+  --color-silk: var(--bg-silk);
+  --color-rose-deep: var(--bg-rose-deep);
+  --color-crimson: var(--crimson);
+  --color-crimson-deep: var(--crimson-deep);
+  --color-lotus: var(--lotus);
+  --color-lotus-soft: var(--lotus-soft);
+  --color-gold: var(--gold);
+  --color-gold-antique: var(--gold-antique);
+  --color-gold-text: var(--gold-text);
+  --color-gold-bright: var(--gold-bright);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-hairline: var(--hairline);
+  --color-hairline-soft: var(--hairline-soft);
+  --color-success: var(--success);
+  --color-pending: var(--pending);
+  --color-error: var(--error);
+
+  --font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-sans), "Jost", system-ui, sans-serif;
+  --font-devanagari: var(--font-devanagari), "Tiro Devanagari Hindi", serif;
+
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-soft: 0 18px 50px -24px rgba(158, 25, 45, 0.18);
+  --shadow-lift: 0 30px 70px -30px rgba(36, 23, 25, 0.22);
+  --radius-card: 20px;
+  --radius-pill: 999px;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg-ivory);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-ivory);
+    color: var(--ink);
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--lotus-soft);
+    color: var(--ink);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--crimson);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--lotus-soft);
+  }
+}
+
+.rounded-arch {
+  border-radius: var(--radius-arch);
+}
+
+.bg-logo-plinth {
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    #FDEEF2 0%,
+    #F8DCE5 70%,
+    transparent 100%
+  );
+}
+
+.bg-glass {
+  background-color: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.bg-glass-strong {
+  background-color: var(--glass-strong);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+@keyframes ivory-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-ivory-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-ivory) 0%,
+    var(--bg-blush) 50%,
+    var(--bg-ivory) 100%
+  );
+  background-size: 200% 100%;
+  animation: ivory-shimmer 2.4s var(--ease-silk) infinite;
+}
+
+@keyframes slow-ken-burns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.06) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: slow-ken-burns 14s var(--ease-silk) infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.3s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.3s !important;
+  }
+
+  .animate-ken-burns {
+    animation: none !important;
+    transform: none !important;
+  }
+}
